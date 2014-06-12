@@ -1,0 +1,10 @@
+<% @slides.each do |slide| %>
+	<%= image_tag slide.image.url %>
+<% end %>
+
+<%= simple_form_for [@slideshow, @slide], html: {multipart: true} do |f| %>
+	<%= f.input :title %>
+	<%= f.text_area :description %>
+	<%= f.file_field :image %>
+	<%= f.button :submit %>
+<% end %>

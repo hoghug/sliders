@@ -1,0 +1,8 @@
+ <ul><% @slideshows.each do |slideshow| %>
+ 	<li><%= link_to slideshow.title, slideshow_path(slideshow) %></li>
+ <% end %>
+</ul>
+<%= simple_form_for @slideshow do |f| %>
+	<%= f.input :title %>
+	<%= f.button :submit  %>
+<% end %>
