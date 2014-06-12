@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 		thumbnailClick: function(){
 			$('body').on('click', '.thumbnail', function() {
-				var curSlide = SS.findCurrentSlideFromControls($(this));
+				var curSlide = SS.findCurrentSlide($(this).closest(SS.slideshowParent));
 				SS.removeCurrentThumb($(this).parent());
 				curSlide.removeClass('active');
 
@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 		prevSlide: function() {
 			$('body').on('click', '.prev', function() {
-				var curSlide = SS.findCurrentSlideFromControls($(this));
+				var curSlide = SS.findCurrentSlide($(this).closest(SS.slideshowParent));
 				SS.removeCurrentThumb($(this).parent());
 				if (SS.checkForFirst(curSlide)) {
 					SS.addCurrentThumb($(this).next().find('.thumbnail:last-child'));
@@ -74,7 +74,7 @@ $(document).ready(function(){
 
 		nextSlide: function(){
 			$('body').on('click', '.next', function() {
-				var curSlide = SS.findCurrentSlideFromControls($(this));
+				var curSlide = SS.findCurrentSlide($(this).closest(SS.slideshowParent));
 				SS.removeCurrentThumb($(this).parent());
 				if (SS.checkForLast(curSlide)) {
 					SS.addCurrentThumb($(this).prev().find('.thumbnail:first-child'));
@@ -90,10 +90,6 @@ $(document).ready(function(){
 
 		findCurrentSlide: function(ele){
 			return ele.find('.active');
-		},
-
-		findCurrentSlideFromControls: function(ele){
-			return ele.closest('.controls').prev('.slideshow').find('.active');
 		},
 
 		checkForLast: function(slide){
@@ -115,6 +111,7 @@ $(document).ready(function(){
 		updateCurrentTitle: function(ele){
 			ele.find('h4').text(SS.findCurrentSlide(ele).data('slidetitle'));
 		},
+		
 		updateCurrentDesc: function(ele){
 			ele.find('p').text(SS.findCurrentSlide(ele).data('slidedesc'));
 		}
