@@ -4,7 +4,7 @@ class SlidesController < ApplicationController
 		@slideshow = Slideshow.find(params[:slideshow_id])
 		@slide = @slideshow.slides.new(slide_params)
 		if @slide.save
-			redirect_to slideshows_path
+			redirect_to slideshow_path(@slideshow)
 		else
 			binding.pry
 			redirect_to :back
