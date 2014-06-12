@@ -8,7 +8,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'simple_form'
-# gem 'rmagick'
+gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'
  
 group :development do

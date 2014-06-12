@@ -1,5 +1,5 @@
 <% @slides.each do |slide| %>
-	<%= image_tag slide.image.url %>
+	<%= image_tag slide.image.thumb.url %>
 <% end %>
 
 <%= simple_form_for [@slideshow, @slide], html: {multipart: true} do |f| %>
