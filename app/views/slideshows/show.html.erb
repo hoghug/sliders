@@ -5,12 +5,15 @@
 	<%= f.input :title, label: false %>
 	<%= f.button :submit, class: 'btn-primary' %>
 <% end %>
-<a href="#" class="edit-title"><%= fa_stacked_icon 'pencil', base: 'square-o' %></a>
+<a href="#" class="edit-slideshow-title"><%= fa_stacked_icon 'pencil', base: 'square-o' %></a>
 
 
 <% @slides.each do |slide| %>
 	<%= render 'slides/slide', slide: slide %>
 <% end %>
+
+
+<h2>New Slide</h2>
 
 <%= simple_form_for [@slideshow, @slide], html: {multipart: true} do |f| %>
 	<%= f.input :title, label: false, placeholder: 'Title' %>

@@ -12,7 +12,13 @@ class SlidesController < ApplicationController
 	end
 
 	def update
-
+		@slideshow = Slideshow.find(params[:slideshow_id])
+		@slide = Slide.find(params[:id])
+		if @slide.update(slide_params)
+			redirect_to slideshow_path(@slideshow)
+		else
+			redirect_to :back
+		end
 	end
 
 private

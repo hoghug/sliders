@@ -6,12 +6,8 @@
           box-sizing: border-box;
 }
 
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
-}
+@import "compass/css3/border-radius";
+
 
 
 html, body, div, img, span, h1, h2, h3, h4, p, ol, ul, li {
@@ -61,11 +57,11 @@ body {
 	display: inline-block;
 }
 
-.edit-title {
+.edit-slideshow-title {
 
 	color: red;
 }
 
-.edit_slideshow {
+.edit_slideshow, .edit_slide {
 	display:none;
 }

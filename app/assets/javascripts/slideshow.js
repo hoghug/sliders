@@ -2,8 +2,8 @@ $(document).ready(function(){
 
 	SS = {
 
-		slideshowParentClass: 'slideshow-parent',
-		slideShowParentSelector: '.slideshow-parent',
+		slideshowParentClass: 'slideshow-entry',
+		slideShowParentSelector: '.slideshow-entry',
 
 		init: function(){
 			SS.addSlideInfo();
@@ -120,9 +120,6 @@ $(document).ready(function(){
 
 	}
 
-
-	SS.slideshowParentClass = 'slideshow-entry';
-	SS.slideShowParentSelector = '.' + SS.slideshowParentClass
 	SS.init();
 
 

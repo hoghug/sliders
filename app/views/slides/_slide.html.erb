@@ -3,6 +3,12 @@
 	<div class="slideshow-info grid-6 column last">
 		<h4><%= slide.title %></h4>
 		<p><%= slide.description %></p>
+		<%= simple_form_for [@slideshow, slide] do |f| %>
+			<%= f.input :title, label: false %>
+			<div><%= f.text_area :description, label: false %></div>
+			<%= f.button :submit, class: 'btn-primary' %>
+		<% end %>
+		<a href="#" class="edit-slide"><%= fa_stacked_icon 'pencil', base: 'square-o' %></a>
 	</div>
 
 </div>
