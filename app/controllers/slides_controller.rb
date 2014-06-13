@@ -6,7 +6,6 @@ class SlidesController < ApplicationController
 		if @slide.save
 			redirect_to slideshow_path(@slideshow)
 		else
-			binding.pry
 			redirect_to :back
 		end
 	end
