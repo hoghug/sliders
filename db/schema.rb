@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612171508) do
+ActiveRecord::Schema.define(version: 20140613173413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140612171508) do
   create_table "slides", force: true do |t|
     t.integer "slideshow_id"
     t.string  "title"
-    t.string  "description"
+    t.text    "description"
     t.string  "image"
   end
 
