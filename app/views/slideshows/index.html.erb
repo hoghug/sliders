@@ -4,6 +4,7 @@
 
 
 <%= simple_form_for @slideshow do |f| %>
-	<%= f.input :title %>
-	<%= f.button :submit  %>
+	<h3>New Slideshow</h3>
+	<%= f.input :title, label: false, placeholder: 'Title' %>
+	<%= f.button :submit, class: 'btn-primary' %>
 <% end %>

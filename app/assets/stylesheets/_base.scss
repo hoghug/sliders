@@ -1,0 +1,71 @@
+// @import "font-awesome";
+
+@mixin box-sizing {
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+html, body, div, img, span, h1, h2, h3, h4, p, ol, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: left;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+ 
+* {
+  font-weight: normal !important;
+  @include box-sizing;
+}
+
+body {
+	background: url(http://subtlepatterns.com/patterns/escheresque_ste.png);
+	font-family: 'Arimo', sans-serif;
+}
+
+#wrapper {
+	width: 90%;
+	margin: 0 auto;
+	padding: 5%;
+	background-color: white;
+}
+
+.clearfix {
+	&:after {
+	    content: "";
+	    display: table;
+	    clear: both; 
+	}
+}
+
+.btn-primary {
+	padding: 1% 2%;
+	color: white;
+	border: 1px solid #007295;
+	background-color: #008CBA;
+	@include border-radius(5px);
+}
+
+
+.slideshow-header {
+	display: inline-block;
+}
+
+.edit-title {
+
+	color: red;
+}
+
+.edit_slideshow {
+	display:none;
+}

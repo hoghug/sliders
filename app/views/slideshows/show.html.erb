@@ -1,5 +1,11 @@
-
-<h1><%= @slideshow.title %></h1>
+<%= link_to '<< Back', slideshows_path %>
+<hr>
+<h1 class="slideshow-header"><%= @slideshow.title %></h1>
+<%= simple_form_for(@slideshow) do |f| %>
+	<%= f.input :title, label: false %>
+	<%= f.button :submit, class: 'btn-primary' %>
+<% end %>
+<a href="#" class="edit-title"><%= fa_stacked_icon 'pencil', base: 'square-o' %></a>
 
 
 <% @slides.each do |slide| %>
@@ -7,8 +13,8 @@
 <% end %>
 
 <%= simple_form_for [@slideshow, @slide], html: {multipart: true} do |f| %>
-	<%= f.input :title %>
-	<%= f.text_area :description %>
-	<%= f.file_field :image %>
-	<%= f.button :submit %>
+	<%= f.input :title, label: false, placeholder: 'Title' %>
+	<div><%= f.text_area :description, label: false, placeholder: 'Description' %></div>
+	<div><%= f.file_field :image %></div>
+	<%= f.button :submit, class: 'btn-primary' %>
 <% end %>

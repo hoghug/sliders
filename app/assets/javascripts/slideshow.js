@@ -11,7 +11,6 @@ $(document).ready(function(){
 			SS.nextSlide();
 			SS.thumbnailClick();
 			SS.ignoreHashAnchor();
-			console.log(SS.slideShowParentSelector);
 		},
 
 		ignoreHashAnchor: function() {
@@ -60,7 +59,6 @@ $(document).ready(function(){
 
 		prevSlide: function() {
 			$('body').on('click', '.prev', function() {
-				console.log('prev clicked');
 				var curSlide = SS.findCurrentSlide($(this).closest(SS.slideShowParentSelector));
 				SS.removeCurrentThumb($(this).parent());
 				if (SS.checkForFirst(curSlide)) {
@@ -77,7 +75,6 @@ $(document).ready(function(){
 
 		nextSlide: function(){
 			$('body').on('click', '.next', function() {
-				console.log('next clicked');
 				var curSlide = SS.findCurrentSlide($(this).closest(SS.slideShowParentSelector));
 				SS.removeCurrentThumb($(this).parent());
 				if (SS.checkForLast(curSlide)) {
