@@ -14,7 +14,7 @@ gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'
 gem 'font-awesome-rails'
 gem 'fog'
-gem 'carrierwave_direct'
+gem 'figaro'
  
 group :development do
   gem 'better_errors'
