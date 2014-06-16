@@ -15,6 +15,8 @@ gem 'carrierwave'
 gem 'font-awesome-rails'
 gem 'fog'
 gem 'figaro'
+gem 'devise'
+gem 'cancancan'
  
 group :development do
   gem 'better_errors'
