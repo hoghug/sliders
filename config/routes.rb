@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :slideshows do
-    resources :slides
-  end
 
-  root to: 'slideshows#index'
+	devise_for :users, path_names: {sign_in: 'login', sign_out: 'logout'}
+
+	resources :slideshows do
+		resources :slides
+	end
+
+	root to: 'slideshows#index'
+	
 end
