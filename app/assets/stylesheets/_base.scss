@@ -7,6 +7,7 @@
 }
 
 @import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
 
 
 
@@ -30,12 +31,20 @@ body {
 }
 
 #topbar {
-	height: 40px;
-	background-color: white;
 	position: fixed;
-	line-height: 40px;
+	padding: 0 10%;
 	width: 100%;
-	border-bottom: 3px solid gray;
+	height: 40px;
+	line-height: 40px;
+	background-color: black;
+	color: white;
+	// border-bottom: 3px solid gray;
+	@include box-shadow(black 10px 0 8px -2px);
+
+	a {
+		color: #FF530D;
+		text-decoration: none;
+	}
 }
 
 

@@ -6,6 +6,5 @@ class User < ActiveRecord::Base
 
 	has_many :slideshows
 	has_many :slides, :through => :slideshows
-	
 
 end

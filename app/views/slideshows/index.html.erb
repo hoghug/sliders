@@ -2,9 +2,10 @@
 	<%= render 'slideshow', slideshow: slideshow %>
 <% end %>
 
-
-<%= simple_form_for @slideshow do |f| %>
-	<h3>New Slideshow</h3>
-	<%= f.input :title, label: false, placeholder: 'Title' %>
-	<%= f.button :submit, class: 'btn-primary' %>
+<% if user_signed_in? %>
+	<%= simple_form_for @slideshow do |f| %>
+		<h3>New Slideshow</h3>
+		<%= f.input :title, label: false, placeholder: 'Title' %>
+		<%= f.button :submit, class: 'btn-primary' %>
+	<% end %>
 <% end %>
