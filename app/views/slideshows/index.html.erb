@@ -5,7 +5,17 @@
 <% if user_signed_in? %>
 	<%= simple_form_for @slideshow do |f| %>
 		<h3>New Slideshow</h3>
-		<%= f.input :title, label: false, placeholder: 'Title' %>
+		<%= f.input :title, label: false, placeholder: 'Slideshow Title' %>
+		
+		<%= f.simple_fields_for :slides do |ff| %>
+			<br>
+			<%= ff.input :title, label: false, placeholder: 'Slide Title' %>
+			<div><%= ff.text_area :description, label: false, placeholder: 'Description' %></div>
+			<div><%= ff.file_field :image %></div>
+		<% end %>
+
+		<br>
+
 		<%= f.button :submit, class: 'btn-primary' %>
 	<% end %>
 <% end %>

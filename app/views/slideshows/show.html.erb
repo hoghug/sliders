@@ -1,7 +1,7 @@
 <%= link_to '<< Back', slideshows_path %>
 <hr>
 <h1 class="slideshow-header"><%= @slideshow.title %></h1>
-<%= simple_form_for(@slideshow) do |f| %>
+<%= simple_form_for(@slideshow, remote: true) do |f| %>
 	<%= f.input :title, label: false %>
 	<%= f.button :submit, class: 'btn-primary' %>
 <% end %>

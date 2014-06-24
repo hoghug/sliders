@@ -1,6 +1,7 @@
 class SlidesController < ApplicationController
 
 	def create
+		# binding.pry
 		@slideshow = Slideshow.find(params[:slideshow_id])
 		@slide = @slideshow.slides.new(slide_params)
 		if @slide.save

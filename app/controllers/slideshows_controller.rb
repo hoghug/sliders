@@ -5,6 +5,7 @@ class SlideshowsController < ApplicationController
 	def index
 		@slideshows = Slideshow.all
 		@slideshow = Slideshow.new
+		@slideshow.slides.build
 	end
 
 	def show
@@ -12,12 +13,17 @@ class SlideshowsController < ApplicationController
 		@slides = @slideshow.slides
 		@slide = Slide.new
 
-		# unauthorized if cannot? :manage @slideshow
+		respond_to do |format|
+			format.html 
+			format.json  { render json: @slideshow }
+		end
+
 	end
 
 	def create
 
 		@slideshow = current_user.slideshows.new(slideshow_params)
+
 		if @slideshow.save
 			redirect_to slideshow_path(@slideshow)
 		else
@@ -28,7 +34,12 @@ class SlideshowsController < ApplicationController
 	def update
 		@slideshow = Slideshow.find(params[:id])
 		if @slideshow.update(slideshow_params)
-			redirect_to slideshow_path(@slideshow)
+
+			 respond_to do |format|
+		      format.html { redirect_to slideshow_path(@slideshow) }
+		      format.json { render :json => @slideshow }
+		      format.js
+		    end
 		else
 			redirect_to :back
 		end
@@ -36,6 +47,6 @@ class SlideshowsController < ApplicationController
 
 private
 	def slideshow_params
-		params.require(:slideshow).permit(:title)
+		params.require(:slideshow).permit(:title, slides_attributes: [:id, :title, :description, :image])
 	end
 end

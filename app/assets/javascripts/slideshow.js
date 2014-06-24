@@ -115,6 +115,11 @@ $(document).ready(function(){
 		
 		updateCurrentDesc: function(ele){
 			ele.find('p').text(SS.findCurrentSlide(ele).data('slidedesc'));
+		},
+
+		updateDetails: function(rawSlideshow){
+			var slideshow = JSON.parse(rawSlideshow);
+			$('.slideshow-header').text(slideshow.title).show();
 		}
 
 
