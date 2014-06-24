@@ -5,7 +5,7 @@
 			<% if slideshow.user == current_user %>
 				<%= link_to slideshow.title, slideshow_path(slideshow) %>
 			<% else %>
-				<%= slideshow.title %>
+				<%= slideshow.title %> by <%= slideshow.user.email %>
 			<% end %>
 		</h2>
 	</div>

@@ -1,1 +1,1 @@
-SS.updateDetails('<%=j @slideshow.to_json.html_safe %>');
+SS.updateDetails('<%=j @slideshow.to_json(:include => :user).html_safe  %>');

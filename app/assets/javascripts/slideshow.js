@@ -119,6 +119,7 @@ $(document).ready(function(){
 
 		updateDetails: function(rawSlideshow){
 			var slideshow = JSON.parse(rawSlideshow);
+			// debugger;
 			$('.slideshow-header').text(slideshow.title).show().next().hide().next().show();
 		}
 
