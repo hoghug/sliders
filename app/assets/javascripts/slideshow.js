@@ -119,7 +119,7 @@ $(document).ready(function(){
 
 		updateDetails: function(rawSlideshow){
 			var slideshow = JSON.parse(rawSlideshow);
-			$('.slideshow-header').text(slideshow.title).show();
+			$('.slideshow-header').text(slideshow.title).show().next().hide().next().show();
 		}
 
 
