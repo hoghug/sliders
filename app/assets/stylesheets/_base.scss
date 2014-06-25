@@ -38,8 +38,8 @@ body {
 	line-height: 40px;
 	background-color: black;
 	color: white;
-	// border-bottom: 3px solid gray;
-	@include box-shadow(black 10px 0 8px -2px);
+	z-index: 999;
+	@include box-shadow(black 18px 0 16px -2px);
 
 	a {
 		color: #FF530D;
