@@ -1,6 +1,6 @@
 class SlideshowsController < ApplicationController
 
-	load_and_authorize_resource
+	authorize_resource
 
 	def index
 		@slideshows = Slideshow.includes(:user)
@@ -10,8 +10,10 @@ class SlideshowsController < ApplicationController
 
 	def show
 		@slideshow = Slideshow.find(params[:id])
-		@slides = @slideshow.slides
-		@slide = Slide.new
+		# @slideshow.slides #.reject(&:new_record?)
+		# @slideshow.slides.build
+		# @slides = @slideshow.slides
+		# @slide = Slide.new
 
 		respond_to do |format|
 			format.html 
@@ -33,14 +35,13 @@ class SlideshowsController < ApplicationController
 
 	def update
 		@slideshow = Slideshow.find(params[:id])
-
 		if @slideshow.update(slideshow_params)
-
-			 respond_to do |format|
-		      format.html { redirect_to slideshow_path(@slideshow) }
-		      format.json { render :json => @slideshow.to_json(:include => :user) }
-		      format.js
-		    end
+			redirect_to :back
+			 # respond_to do |format|
+		  #     format.html { redirect_to slideshow_path(@slideshow) }
+		  #     format.json { render :json => @slideshow.to_json(:include => :user) }
+		  #     format.js
+		  #   end
 		else
 			redirect_to :back
 		end
@@ -48,6 +49,6 @@ class SlideshowsController < ApplicationController
 
 private
 	def slideshow_params
-		params.require(:slideshow).permit(:title, slides_attributes: [:id, :title, :description, :image])
+		params.require(:slideshow).permit(:title, slides_attributes: [:id, :title, :description, :image, :_destroy])
 	end
 end
