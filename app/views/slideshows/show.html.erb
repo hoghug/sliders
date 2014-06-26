@@ -7,14 +7,10 @@
 	<%= f.input :title, label:'Slideshow Title' %>
 
 	<%= f.simple_fields_for :slides do |ff| %>
-		<fieldset>
-			<%= ff.text_field :title %><br>
-			<%= ff.text_area :description %><br>
-			<%= ff.file_field :image %><br>
-			<%= ff.check_box :_destroy %>
-			<%= ff.label :_destroy, 'Remove Slide' %>
-		</fieldset>
+		<%= render 'slides/slide_fields', f: ff %>
 	<% end %>
+	
+	<%= link_to_add_fields "Add Slide", f, :slides %>
 	<br>
 	<%= f.submit 'Update', class: 'btn-primary' %>
 <% end %>
