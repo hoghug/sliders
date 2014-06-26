@@ -1,23 +1,32 @@
 <%= link_to '<< Back', slideshows_path %>
 <hr>
 <h1 class="slideshow-header"><%= @slideshow.title %></h1>
-<%= simple_form_for(@slideshow, remote: true) do |f| %>
-	<%= f.input :title, label: false %>
-	<%= f.button :submit, class: 'btn-primary' %>
+<br><br>
+
+<%= simple_form_for @slideshow, html: {multipart: true} do |f| %>
+	<%= f.input :title, label:'Slideshow Title' %>
+
+	<%= f.simple_fields_for :slides do |ff| %>
+		<%= render 'slides/slide_fields', f: ff %>
+	<% end %>
+	
+	<%= link_to_add_fields "Add Slide", f, :slides %>
+	<br>
+	<%= f.submit 'Update', class: 'btn-primary' %>
 <% end %>
-<a href="#" class="edit-slideshow-title"><%= fa_stacked_icon 'pencil', base: 'square-o' %></a>
 
+<br><hr><br>
 
-<% @slides.each do |slide| %>
-	<%= render 'slides/slide', slide: slide %>
+<% @slideshow.slides.each do |slide| %>
+	<div>
+		<%= image_tag slide.image.thumb.url %>
+		<%= slide.title %> - <%= slide.description %>
+	</div>
 <% end %>
 
 
-<h2>New Slide</h2>
-
-<%= simple_form_for [@slideshow, @slide], html: {multipart: true} do |f| %>
-	<%= f.input :title, label: false, placeholder: 'Title' %>
-	<div><%= f.text_area :description, label: false, placeholder: 'Description' %></div>
-	<div><%= f.file_field :image %></div>
-	<%= f.button :submit, class: 'btn-primary' %>
+<% if false %>
+	<% @slides.each do |slide| %>
+		<%= render 'slides/nf_slide', slide: slide %>
+	<% end %>
 <% end %>

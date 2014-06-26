@@ -1,10 +1,26 @@
 $(document).ready(function(){
 
+	// function add_fields(link, association, content) {
+	//   var new_id = new Date().getTime();
+	//   var regexp = new RegExp("new_" + association, "g");
+	//   $(link).up().insert({
+	//         before: content.replace(regexp, new_id)
+	//   });
+	// }
+
+	// function add_fields(link, association, content) {
+	// 	var new_id = new Date().getTime();
+	// 	var regexp = new RegExp("new_" + association, "g");
+	// 	$(this).before(content.replace(regexp, new_id));
+	// }
+
+
 	editor = {
 
 		init: function(){
 			editor.editSlideShowTitle();
 			editor.editSlide();
+			// editor.addSlideFields();
 		},
 
 		editSlideShowTitle: function(){
@@ -23,11 +39,17 @@ $(document).ready(function(){
 				titleForm = $(this).prev().show();
 				titleForm.find('input[type="text"]').focus();
 			});
+		},
+
+		addSlideFields: function(link, association, content) {
+			var new_id = new Date().getTime();
+			var regexp = new RegExp("new_" + association, "g");
+			$(link).before(content.replace(regexp, new_id));
 		}
 
 	}
 
 	editor.init();
-	
+	// add_fields();
 
 });

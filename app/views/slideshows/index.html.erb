@@ -3,7 +3,7 @@
 <% end %>
 
 <% if user_signed_in? %>
-	<%= simple_form_for @slideshow do |f| %>
+	<%= simple_form_for @slideshow, html: {multipart: true} do |f| %>
 		<h3>New Slideshow</h3>
 		<%= f.input :title, label: false, placeholder: 'Slideshow Title' %>
 		
