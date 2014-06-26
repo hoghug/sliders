@@ -6,6 +6,6 @@ module ApplicationHelper
 	  fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|  
 	    render(association.to_s + "/" + association.to_s.singularize + "_fields", :f => builder)  
 	  end  
-	  link_to name, '#', onclick: "editor.addSlideFields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"
+	  link_to name, '#', class: 'add-slide-fields' ,onclick: "editor.addSlideFields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"
 	end
 end
